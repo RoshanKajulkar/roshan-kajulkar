@@ -1,5 +1,10 @@
 import express from "express";
 import axios from "axios";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const port = 3000;
@@ -31,6 +36,8 @@ app.get("/ping", (req, res) => {
     `"https://roshan-kajulkar.onrender.com/" was last pinged on - ${lastApiHit}`
   );
 });
+
+app.use("/vue", express.static(join(__dirname, "builds/vue/dist/")));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
