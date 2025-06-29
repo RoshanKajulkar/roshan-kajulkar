@@ -18,7 +18,7 @@ const hitApi = async () => {
       timeZone: "Asia/Kolkata",
     });
   } catch (error) {
-    logger.error(`Error making API call to ${endpoint}`);
+    console.log(error);
   }
 };
 
